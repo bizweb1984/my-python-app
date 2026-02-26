@@ -35,6 +35,11 @@ jobs:
         mkdir -p $HOME/.kube
         echo "${{ secrets.KUBE_CONFIG }}" > $HOME/.kube/config
 
+    - name: Check k8s connection
+      run: |
+        kubectl version --short
+        kubectl cluster-info
+
     - name: Deploy to Kubernetes
       run: |
         kubectl apply -f deployment.yaml
