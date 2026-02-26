@@ -37,7 +37,7 @@ jobs:
 
     - name: Check k8s connection
       run: |
-        kubectl version --short
+        kubectl version
         kubectl cluster-info
 
     - name: Deploy to Kubernetes
