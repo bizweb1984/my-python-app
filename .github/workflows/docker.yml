@@ -38,3 +38,8 @@ jobs:
       run: |
         kubectl apply -f deployment.yaml
         kubectl apply -f service.yaml
+
+    - name: Pull New Image and Restart Pods
+      run: |
+        kubectl rollout restart deployment python-app
+        kubectl rollout status deployment/python-app
