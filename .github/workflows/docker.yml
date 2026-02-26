@@ -41,5 +41,4 @@ jobs:
 
     - name: Pull New Image and Restart Pods
       run: |
-        kubectl rollout restart deployment python-app
-        kubectl rollout status deployment/python-app
+        kubectl set image deployment/python-app python-app=${{ secrets.DOCKER_USERNAME }}/my-python-app:latest
